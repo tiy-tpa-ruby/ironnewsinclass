@@ -1,6 +1,3 @@
-.page-header
-
-
 .table-responsive
   %table.table.table-striped.table-bordered.table-hover
 
@@ -8,9 +5,10 @@
       - @stories.each_with_index do |story, index|
         %tr
           %td
+            = index + 1
+            \.
+          %td
             %p
-              = index + 1
-              \.
               %i.fa.fa-chevron-up{"aria-hidden" => "true"}
               = link_to story.title, story.link
               %em

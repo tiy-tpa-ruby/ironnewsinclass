@@ -6,6 +6,11 @@ class StoriesController < ApplicationController
 
   # GET /stories/1
   def show
+    # if admin
+    #  do *a*
+    # else
+    #  do *b-e*
+    redirect_to stories_path
     @story = Story.find(params[:id])
   end
 
