@@ -1,0 +1,16 @@
+.page-header
+  = link_to stories_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_story_path(@story), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show story
+
+%dl.dl-horizontal
+  %dt Title:
+  %dd= @story.title
+  %dt Link:
+  %dd= @story.link
+  %dt Email:
+  %dd= @story.email

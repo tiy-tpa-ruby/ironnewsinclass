@@ -1,0 +1,23 @@
+.page-header
+  = link_to new_story_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Story
+  %h1 Listing stories
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+
+    %tbody
+      - @stories.each do |story|
+        %tr
+          %td
+            %p
+              = link_to story.title, story.link
+              %em
+                (
+                = story.link
+                )
+
+            %p
+              by
+              = link_to story.email, "mailto:#{story.email}"
