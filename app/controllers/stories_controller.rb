@@ -1,7 +1,7 @@
 class StoriesController < ApplicationController
   # GET /stories
   def index
-    @stories = Story.all
+    @stories = Story.all.order("created_at DESC")
   end
 
   # GET /stories/1
@@ -24,7 +24,7 @@ class StoriesController < ApplicationController
     @story = Story.new(story_params)
 
     if @story.save
-      redirect_to @story, notice: 'Story was successfully created.'
+      redirect_to stories_path, notice: 'Story was successfully created.'
     else
       render :new
     end
