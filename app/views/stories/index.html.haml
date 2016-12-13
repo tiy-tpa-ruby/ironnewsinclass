@@ -9,9 +9,20 @@
             \.
           %td
             %p
-              = story.votes.count
-              %i.fa.fa-chevron-up{"aria-hidden" => "true"}
+              = story.upvote_count
+              = story.downvote_count
+              = link_to upvote_story_path(story) do
+                -# link_to "<i class='fa fa-chevron-up' aria-hidden='true'>", upvote_story_path(story)
+                %i.fa.fa-chevron-up{"aria-hidden" => "true"}
+
+              = link_to downvote_story_path(story) do
+                -# link_to "<i class='fa fa-chevron-up' aria-hidden='true'>", upvote_story_path(story)
+                %i.fa.fa-chevron-down{"aria-hidden" => "true"}
               = link_to story.title, story.link
+              %em
+                Net Value:
+                = story.net
+
               %em
                 (
                 = truncate(story.link, length: 30)

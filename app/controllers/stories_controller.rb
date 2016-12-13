@@ -6,13 +6,11 @@ class StoriesController < ApplicationController
 
   # GET /stories/1
   def show
-<<<<<<< HEAD
-=======
+
     # if admin
     #  do *a*
     # else
     #  do *b-e*
->>>>>>> f509706c1224fb72007b94ed3892965f0b4c61ec
     redirect_to stories_path
     @story = Story.find(params[:id])
   end
@@ -53,6 +51,21 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
     @story.destroy
     redirect_to stories_url, notice: 'Story was successfully destroyed.'
+  end
+
+  # upvote
+  def upvote
+    @story = Story.find(params[:id])
+    @story.votes.create(upvote: true)
+
+    redirect_to stories_path
+  end
+
+  def downvote
+    @story = Story.find(params[:id])
+    @story.votes.create(upvote: false)
+
+    redirect_to stories_path
   end
 
   private
