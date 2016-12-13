@@ -1,11 +1,12 @@
 class StoriesController < ApplicationController
   # GET /stories
   def index
-    @stories = Story.all
+    @stories = Story.all.order("created_at DESC")
   end
 
   # GET /stories/1
   def show
+    redirect_to stories_path
     @story = Story.find(params[:id])
   end
 
