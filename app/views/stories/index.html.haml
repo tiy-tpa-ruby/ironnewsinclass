@@ -30,5 +30,6 @@
             %p
               by
               = link_to story.email, "mailto:#{story.email}"
-              = distance_of_time_in_words_to_now(story.created_at)
-              ago
+              %span.waybackwhen
+                = distance_of_time_in_words_to_now(story.created_at)
+                ago
