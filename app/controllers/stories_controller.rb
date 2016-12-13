@@ -6,6 +6,13 @@ class StoriesController < ApplicationController
 
   # GET /stories/1
   def show
+<<<<<<< HEAD
+=======
+    # if admin
+    #  do *a*
+    # else
+    #  do *b-e*
+>>>>>>> f509706c1224fb72007b94ed3892965f0b4c61ec
     redirect_to stories_path
     @story = Story.find(params[:id])
   end
@@ -25,7 +32,7 @@ class StoriesController < ApplicationController
     @story = Story.new(story_params)
 
     if @story.save
-      redirect_to @story, notice: 'Story was successfully created.'
+      redirect_to stories_path, notice: 'Story was successfully created.'
     else
       render :new
     end
