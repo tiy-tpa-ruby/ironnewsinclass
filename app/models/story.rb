@@ -12,11 +12,12 @@ class Story < ApplicationRecord
   def downvote_count
     votes.where(upvote: false).count
   end
-<<<<<<< HEAD
-=======
 
   def net
     (upvote_count - downvote_count)
   end
->>>>>>> c7e954c672584b52b7da190421339e622d8e7d9d
+
+  def not_already_voted?(user)
+    votes.where(user: user).count == 0
+  end
 end

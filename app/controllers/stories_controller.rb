@@ -56,36 +56,29 @@ class StoriesController < ApplicationController
     redirect_to stories_url, notice: 'Story was successfully destroyed.'
   end
 
-<<<<<<< HEAD
-  # Upvote
-  def upvote
-    @story = Story.find(params[:id])
-    @story.votes.create(upvote: true)
-    redirect_to stories_path
-  end
-  # Downvote
-  def downvote
-    @story = Story.find(params[:id])
-    @story.votes.create(upvote: false)
-    redirect_to stories_path
-  end
-=======
   # upvote
   def upvote
     @story = Story.find(params[:id])
-    @story.votes.create(upvote: true)
+    if @story.not_already_voted?(current_user)
+      @story.votes.create(upvote: true, user: current_user)
+      redirect_to stories_path
+    else
+      redirect_to stories_path, notice: "sorry, you've already up voted for the story"
+    end
 
-    redirect_to stories_path
   end
 
   def downvote
     @story = Story.find(params[:id])
-    @story.votes.create(upvote: false)
+    if @story.not_already_voted?(current_user)
+      @story.votes.create(upvote: false, user: current_user)
+      redirect_to stories_path
+    else
+      redirect_to stories_path, notice: "sorry, you've already down voted for the story"
+    end
 
-    redirect_to stories_path
   end
 
->>>>>>> c7e954c672584b52b7da190421339e622d8e7d9d
   private
   # Only allow a trusted parameter "white list" through.
   def story_params
