@@ -12,10 +12,22 @@
               = story.upvote_count
               = story.downvote_count
               = link_to upvote_story_path(story) do
+<<<<<<< HEAD
                 %i.fa.fa-chevron-up{"aria-hidden" => "true"}
               = link_to downvote_story_path(story) do
+=======
+                -# link_to "<i class='fa fa-chevron-up' aria-hidden='true'>", upvote_story_path(story)
+                %i.fa.fa-chevron-up{"aria-hidden" => "true"}
+
+              = link_to downvote_story_path(story) do
+                -# link_to "<i class='fa fa-chevron-up' aria-hidden='true'>", upvote_story_path(story)
+>>>>>>> c7e954c672584b52b7da190421339e622d8e7d9d
                 %i.fa.fa-chevron-down{"aria-hidden" => "true"}
               = link_to story.title, story.link
+              %em
+                Net Value:
+                = story.net
+
               %em
                 (
                 = truncate(story.link, length: 30)
@@ -23,5 +35,6 @@
             %p
               by
               = link_to story.email, "mailto:#{story.email}"
-              = distance_of_time_in_words_to_now(story.created_at)
-              ago
+              %span.waybackwhen
+                = distance_of_time_in_words_to_now(story.created_at)
+                ago
