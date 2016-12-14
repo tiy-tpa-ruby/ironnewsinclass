@@ -1,4 +1,6 @@
 class StoriesController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+
   # GET /stories
   def index
     @stories = Story.all.order("created_at DESC")
@@ -28,6 +30,7 @@ class StoriesController < ApplicationController
   # POST /stories
   def create
     @story = Story.new(story_params)
+    @story.email = current_user.email
 
     if @story.save
       redirect_to stories_path, notice: 'Story was successfully created.'
