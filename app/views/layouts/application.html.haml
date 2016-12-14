@@ -34,6 +34,16 @@
             %li
               = link_to new_story_path do
                 New Story
+          %ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              %li
+                %p.navbar-text
+                  = current_user.email
+            %li
+              - if user_signed_in?
+                = link_to "LogOut", destroy_user_session_path, method: :delete
+              - else
+                = link_to "LogIn", new_user_session_path
     .container
       - flash.each do |name, msg|
         = content_tag :div, class: "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do
