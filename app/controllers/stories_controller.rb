@@ -30,7 +30,7 @@ class StoriesController < ApplicationController
   # POST /stories
   def create
     @story = Story.new(story_params)
-    @story.email = current_user.email
+    @story.user = current_user
 
     if @story.save
       redirect_to stories_path, notice: 'Story was successfully created.'
