@@ -11,7 +11,17 @@ scott = User.create(user_name: "Scott Fitzgerald", email: "scott.fitzgerald@exam
 
 stories = Story.create(
   [
-    { user: scott, title: 'The Great Gatsby', link: 'https://en.wikipedia.org/wiki/The_Great_Gatsby' },
-    { user: george, title: '1984', link: 'https://en.wikipedia.org/wiki/Nineteen_Eighty-Four' }
+    {
+      user: scott,
+      title: 'The Great Gatsby',
+      link: 'https://en.wikipedia.org/wiki/The_Great_Gatsby',
+      cover_image: File.open(Rails.root.join("db/seeds/images/michael.jpg"))
+    },
+    {
+      user: george,
+      title: '1984',
+      link: 'https://en.wikipedia.org/wiki/Nineteen_Eighty-Four',
+      cover_image: File.open(Rails.root.join("db/seeds/images/michael.jpg"))
+    }
   ]
 )

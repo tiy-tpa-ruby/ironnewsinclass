@@ -5,6 +5,8 @@ class Story < ApplicationRecord
   validates :title, presence: true, uniqueness: true
   validates :link, presence: true
 
+  attachment :cover_image
+
   def upvote_count
     votes.where(upvote: true).count
   end
