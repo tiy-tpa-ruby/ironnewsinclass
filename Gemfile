@@ -25,6 +25,10 @@ gem 'turbolinks', '~> 5'
 # Authentication and Authorization
 gem 'devise'
 
+gem 'omniauth'
+
+gem 'omniauth-github'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
