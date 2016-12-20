@@ -23,9 +23,13 @@
                 Net Value:
                 = story.net
 
-              %em
+              %em.truncated-link
                 (
                 = truncate(story.link, length: 30)
+                )
+              %em.full-link
+                (
+                = story.link
                 )
             %p
               by
