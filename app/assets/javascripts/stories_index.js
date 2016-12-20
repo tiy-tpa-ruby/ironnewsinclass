@@ -7,6 +7,10 @@ $(document).ready(function() {
   $('.full-link').click(function(event) {
     $(this).hide().siblings('.truncated-link').show()
   })
+
+  $('.toggle-images').click(function(event) {
+    $('table img').toggle()
+  })
 })
 
 // Alternative
